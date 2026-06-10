@@ -1,40 +1,60 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# Notice Board
 
-## Getting Started
+A full-stack Notice Board application built with Next.js, Prisma, and TiDB Cloud (MySQL). Supports full CRUD operations with server-side validation.
 
-First, run the development server:
+## Live URL
+https://reno-notice-board.vercel.app
 
-```bash
+## Tech Stack
+- **Framework**: Next.js (Pages Router)
+- **Database ORM**: Prisma v5
+- **Database**: TiDB Cloud (MySQL-compatible, free tier)
+- **Styling**: Tailwind CSS v4
+- **Hosting**: Vercel (free tier)
+
+## How to Run Locally
+
+### 1. Clone the repository
+git clone https://github.com/vanikrishna-dev/reno.git
+cd reno/notice-board
+
+### 2. Install dependencies
+npm install
+
+### 3. Set up environment variables
+Create a `.env` file in the root of the `notice-board` folder:
+DATABASE_URL="your-tidb-connection-string-here"
+
+### 4. Push Prisma schema to database
+npx prisma db push
+
+### 5. Start the development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000 in your browser.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## Features
+- Create, read, update and delete notices
+- Server-side input validation (required fields, valid date)
+- Urgent notices always appear above Normal notices
+- Red "Urgent" badge on urgent notices
+- Filter notices by category (Exam, Event, General) and priority
+- Responsive design — works on mobile and desktop
+- Confirmation step before deleting a notice
+- Optional image URL for notices
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+## What I Would Improve With More Time
+- Add image upload support via Cloudinary instead of just an image URL field
+- Add user authentication so only admins can create/edit/delete notices
+- Add pagination for when there are many notices
+- Add search functionality to find notices by keyword
+- Add email notifications for Urgent notices
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+## AI Usage
+Used Claude (Anthropic) to scaffold the initial project structure including:
+- API route handlers with server-side validation
+- Prisma schema definition
+- Tailwind CSS component styling
+- TypeScript types for Notice model
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+All AI-generated code was reviewed, understood, and adapted manually. Database setup, environment configuration, deployment to Vercel, and debugging were done independently. The overall architecture decisions and feature choices were made by me.
