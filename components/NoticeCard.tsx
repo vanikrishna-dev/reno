@@ -62,7 +62,13 @@ export default function NoticeCard({ notice, onDeleted }: { notice: Notice; onDe
       {/* Image */}
       {notice.image && (
         <img src={notice.image} alt={notice.title}
-          className="w-full h-44 object-cover rounded-xl" />
+          className="w-full h-44 object-cover rounded-xl"
+          onError={(e) => {
+            const img = e.currentTarget as HTMLImageElement;
+            img.onerror = null; // prevent loop
+            img.src = '/images/placeholder.png';
+          }}
+        />
       )}
 
       {/* Title */}
