@@ -51,10 +51,11 @@ Open http://localhost:3000 in your browser.
 - Add email notifications for Urgent notices
 
 ## AI Usage
-Used Claude (Anthropic) to scaffold the initial project structure including:
-- API route handlers with server-side validation
+Used Claude (Anthropic) were used as development assistants during the project, including:
+- Scaffolding initial API route structures.
 - Prisma schema definition
-- Tailwind CSS component styling
+- Troubleshooting development issues and debugging errors.
 - TypeScript types for Notice model
+- Reviewing code for potential improvements and best practices.
 
 All AI-generated code was reviewed, understood, and adapted manually. Database setup, environment configuration, deployment to Vercel, and debugging were done independently. The overall architecture decisions and feature choices were made by me.
