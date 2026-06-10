@@ -66,7 +66,7 @@ export default function NoticeCard({ notice, onDeleted }: { notice: Notice; onDe
           onError={(e) => {
             const img = e.currentTarget as HTMLImageElement;
             img.onerror = null; // prevent loop
-            img.src = '/images/placeholder.svg';
+            img.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='176'%3E%3Crect width='400' height='176' fill='%23f1f5f9'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%2394a3b8' font-size='13' font-family='sans-serif'%3ENo image available%3C/text%3E%3C/svg%3E";
           }}
         />
       )}
